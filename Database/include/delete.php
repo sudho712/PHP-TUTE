@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+if (isset($_GET['id']) && is_numeric($_GET['id'])) { // after delete number number serial
     $id = $_GET['id'];
 
     if ($conn->query("DELETE FROM test WHERE id = $id") === TRUE) {

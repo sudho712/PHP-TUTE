@@ -9,6 +9,7 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,18 +22,23 @@ $result = $conn->query($sql);
             font-size: 16px;
             text-align: left;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
         }
+
         th {
             background-color: #f2f2f2;
         }
+
         tr:hover {
             background-color: #f5f5f5;
         }
     </style>
 </head>
+
 <body>
     <h2>Data from Test Table</h2>
     <table>
@@ -43,6 +49,7 @@ $result = $conn->query($sql);
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Registration Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -50,13 +57,18 @@ $result = $conn->query($sql);
             // Check if there are results
             if ($result->num_rows > 0) {
                 // Output data for each row
-                while($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row['id'] . "</td>";
                     echo "<td>" . $row['firstname'] . "</td>";
                     echo "<td>" . $row['lastname'] . "</td>";
                     echo "<td>" . $row['email'] . "</td>";
                     echo "<td>" . $row['reg_date'] . "</td>";
+                    echo "<td>
+                    <a href='update.php?id=" . $row['id'] . "'>Update</a>
+                    <a href='delete.php?id=" . $row['id'] . "'>Delete</a>
+                  </td>";
+
                     echo "</tr>";
                 }
             } else {
@@ -66,6 +78,7 @@ $result = $conn->query($sql);
         </tbody>
     </table>
 </body>
+
 </html>
 
 <?php
