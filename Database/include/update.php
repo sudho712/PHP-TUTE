@@ -42,10 +42,10 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Record</title>
+    <title>Update Record db</title>
 </head>
 <body>
-    <h2>Update Record</h2>
+    <h2>Update Record db</h2>
     <form method="POST">
         <label for="firstname">First Name:</label><br>
         <input type="text" id="firstname" name="firstname" value="<?php echo htmlspecialchars($row['firstname']); ?>" required><br><br>
@@ -55,7 +55,7 @@ $conn->close();
         
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($row['email']); ?>" required><br><br>
-        
+         
         <button type="submit">Update</button>
         <a href="index.php">Cancel</a>
     </form>
